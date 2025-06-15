@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datetime-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: datetime
+  template:
+    metadata:
+      labels:
+        app: datetime
+    spec:
+      containers:
+      - name: datetime-app
+        image: harinie13/datetime-app:latest
+        ports:
+        - containerPort: 8080
